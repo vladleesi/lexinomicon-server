@@ -1,3 +1,1 @@
-
-rootProject.name = "wordy-backend"
-
+rootProject.name = "lexinomicon-backend"

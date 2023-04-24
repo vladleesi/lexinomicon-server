@@ -5,13 +5,21 @@ val kotlin_version: String by project
 val logback_version: String by project
 
 plugins {
-    kotlin("jvm") version "1.7.10"
-    kotlin("plugin.serialization") version "1.6.21"
+    kotlin("jvm") version "1.8.20"
     application
+    kotlin("plugin.serialization") version "1.8.20"
+    id("io.ktor.plugin") version "2.2.4"
 }
 
 group = "io.github.vladleesi"
 version = "1.0-SNAPSHOT"
+
+application {
+    mainClass.set("io.github.vladleesi.ApplicationKt")
+
+    val isDevelopment: Boolean = project.ext.has("development")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+}
 
 repositories {
     mavenCentral()
@@ -32,10 +40,7 @@ dependencies {
     // Log
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
-    // Tests
-    testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
-
+    // Test
     testImplementation(kotlin("test"))
 }
 
@@ -48,5 +53,11 @@ tasks.withType<KotlinCompile> {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("ApplicationKt")
+}
+
+ktor {
+    fatJar {
+        archiveFileName.set("fat.jar")
+    }
 }
