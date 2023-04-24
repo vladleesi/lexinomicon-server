@@ -52,10 +52,6 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-application {
-    mainClass.set("ApplicationKt")
-}
-
 ktor {
     fatJar {
         archiveFileName.set("fat.jar")
