@@ -11,11 +11,11 @@ plugins {
     id("io.ktor.plugin") version "2.2.4"
 }
 
-group = "io.github.vladleesi"
+group = "dev.vladleesi"
 version = "1.0-SNAPSHOT"
 
 application {
-    mainClass.set("io.github.vladleesi.ApplicationKt")
+    mainClass.set("dev.vladleesi.ApplicationKt")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")

@@ -1,9 +1,9 @@
-package io.github.vladleesi
+package dev.vladleesi
 
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import io.github.vladleesi.plugins.configureRouting
-import io.github.vladleesi.plugins.configureSerialization
+import dev.vladleesi.plugins.configureRouting
+import dev.vladleesi.plugins.configureSerialization
 
 fun main(args: Array<String>) {
     // TODO: Replace to flavors
